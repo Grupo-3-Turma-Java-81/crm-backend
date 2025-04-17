@@ -7,7 +7,6 @@ Projeto desenvolvido como parte do Desafio 1 do Projeto Integrador (Backend), co
 
 A Clínica Médica Gen é um sistema simples e eficiente de cadastro, consulta, atualização e exclusão de informações de **pacientes** e **médicos**. Voltado para o uso interno de clínicas, o objetivo é substituir métodos manuais de organização por uma solução digital ágil e segura.
 
-
 ### 🎯 Objetivo
 
 Automatizar o gerenciamento de dados básicos em clínicas médicas, melhorando a organização do ambiente de trabalho, reduzindo erros e aumentando a eficiência no atendimento.
@@ -18,12 +17,11 @@ Automatizar o gerenciamento de dados básicos em clínicas médicas, melhorando 
 Secretárias, recepcionistas, médicos e administradores de clínicas que buscam uma solução prática para gerenciar seus cadastros.
 
 
-## ❗ Problema que Resolvem
+## ❗ Problema que o projeto visa resolver:
 
 Muitas clínicas ainda utilizam fichas físicas ou planilhas para armazenar dados, o que pode resultar em atrasos, perda de informações e retrabalho. Este sistema busca solucionar esse problema com uma interface simples e funcional.
 
 
----
 
 ## 🗃️ Entidades e Atributos
 
@@ -44,12 +42,11 @@ Muitas clínicas ainda utilizam fichas físicas ou planilhas para armazenar dado
 - `crm`: Registro profissional
 - `consultorio`: Número ou nome da sala de atendimento
 
-![Diagrama DER]()
 
 <img src="modelo-der.png" alt="Imagem do diagrama DER" width="600">
 
 
----
+
 
 ## 🔧 Funcionalidades (CRUD)
 
@@ -66,7 +63,6 @@ Muitas clínicas ainda utilizam fichas físicas ou planilhas para armazenar dado
 - **Excluir**: Deletar registro
 
 
----
 
 ## 💻 Tecnologias Utilizadas
 
@@ -81,14 +77,12 @@ Muitas clínicas ainda utilizam fichas físicas ou planilhas para armazenar dado
 | Trello          | Organização e gerenciamento das tarefas do projeto  |
 
 
----
 
 ## 🧪 Testes
 
 As funcionalidades da API foram testadas utilizando o **Insomnia**, simulando requisições HTTP para validação de cada endpoint.
 
 
----
 
 ## 👨‍💻 Integrantes do Grupo
 
@@ -104,6 +98,7 @@ As funcionalidades da API foram testadas utilizando o **Insomnia**, simulando re
 
 
 📅 Projeto iniciado em: **17/04/2025**
+
 
 ---
 
