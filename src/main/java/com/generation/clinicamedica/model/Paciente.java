@@ -43,7 +43,7 @@ public class Paciente {
 	private LocalDate dataCadastro;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("paciente")
+	@JsonIgnoreProperties("pacientes")
 	private Medico medico;
 
 	
