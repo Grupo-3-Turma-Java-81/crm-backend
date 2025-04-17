@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+
 import com.generation.clinicamedica.model.Medico;
 import com.generation.clinicamedica.repository.MedicoRepository;
 import com.generation.clinicamedica.repository.PacienteRepository;
@@ -29,12 +30,12 @@ import jakarta.validation.Valid;
 @RequestMapping("/medicos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MedicoController {
-	
+
 	@Autowired
 	private MedicoRepository medicoRepository;
-	
+
 	@Autowired
-    private PacienteRepository pacienteRepository;
+	private PacienteRepository pacienteRepository;
 
 	@GetMapping
 	public ResponseEntity<List<Medico>> getAll() {
@@ -49,33 +50,28 @@ public class MedicoController {
 
 	}
 
-	@GetMapping("/{especialidade}")
+	@GetMapping("/especialidade/{especialidade}")
 	public ResponseEntity<List<Medico>> getByEspecialidade(@PathVariable String especialidade) {
-	    return ResponseEntity.ok(medicoRepository.findAllByEspecialidadeContainingIgnoreCase(especialidade));
+		return ResponseEntity.ok(medicoRepository.findAllByEspecialidadeContainingIgnoreCase(especialidade));
 	}
-
 
 	@PostMapping
 	public ResponseEntity<Medico> post(@Valid @RequestBody Medico medico) {
-		
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(medicoRepository.save(medico));
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(medicoRepository.save(medico));
 	}
 
 	@PutMapping
 	public ResponseEntity<Medico> put(@Valid @RequestBody Medico medico) {
-		
-		if(pacienteRepository.existsById(medico.getId())) {		
-				return ResponseEntity.status(HttpStatus.OK).body(medicoRepository.save(medico));
-		}		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return medicoRepository.findById(medico.getId())
+				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(medicoRepository.save(medico)))			
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	
+
 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
-	public void delete (@PathVariable Long id)
-	{
+	public void delete(@PathVariable Long id) {
 		Optional<Medico> medico = medicoRepository.findById(id);
 
 		if (medico.isEmpty())
@@ -83,6 +79,5 @@ public class MedicoController {
 
 		medicoRepository.deleteById(id);
 	}
-
 
 }

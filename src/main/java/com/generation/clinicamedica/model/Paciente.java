@@ -34,9 +34,9 @@ public class Paciente {
 	private String especialidade;
 	
 	@NotNull	
-	private Integer cpf;
+	private Long cpf;
 
-	@NotBlank
+	@NotNull
 	private LocalDate data;
 	
 	@UpdateTimestamp	
@@ -71,11 +71,11 @@ public class Paciente {
 		this.especialidade = especialidade;
 	}
 
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 
