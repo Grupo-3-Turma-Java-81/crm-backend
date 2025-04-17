@@ -54,7 +54,7 @@ public class PacienteController {
 
 		}
 
-		@GetMapping("/pacientes/{cpf}")
+		@GetMapping("/{cpf}")
 		public ResponseEntity<List<Paciente>> getByCpf(@PathVariable Long cpf) {
 			return ResponseEntity.ok(pacienteRepository.findAllByCpf(cpf));
 		}
