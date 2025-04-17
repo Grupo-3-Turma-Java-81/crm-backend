@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -32,7 +33,7 @@ public class Paciente {
 	@Size(min = 3, max = 100)	
 	private String especialidade;
 	
-	@NotBlank	
+	@NotNull	
 	private Integer cpf;
 
 	@NotBlank
