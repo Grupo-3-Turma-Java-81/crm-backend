@@ -18,20 +18,22 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.generation.clinicamedica.model.Medico;
 import com.generation.clinicamedica.model.Paciente;
 import com.generation.clinicamedica.repository.MedicoRepository;
 import com.generation.clinicamedica.repository.PacienteRepository;
 import com.generation.clinicamedica.repository.PacienteRepository;
 
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.Valid;
 
+@RestController
+@RequestMapping("/paciente")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PacienteController {
 
-	@RestController
-	@RequestMapping("/paciente")
-	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public class MedicoController {
 
 		@Autowired
 		private PacienteRepository pacienteRepository;
@@ -53,8 +55,8 @@ public class PacienteController {
 		}
 
 		@GetMapping("/pacientes/{cpf}")
-		public ResponseEntity<List<Paciente>> getByTitulo(@PathVariable Long cpf) {
-			return ResponseEntity.ok(pacienteRepository.findAllByTituloContainingIgnoreCase(cpf));
+		public ResponseEntity<List<Paciente>> getByCpf(@PathVariable Long cpf) {
+			return ResponseEntity.ok(pacienteRepository.findAllByCpf(cpf));
 		}
 
 		@PostMapping
@@ -82,6 +84,6 @@ public class PacienteController {
 
 			pacienteRepository.deleteById(id);
 		}
-
+		
 	}
-}
+

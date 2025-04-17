@@ -5,12 +5,19 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+@Entity
+@Table(name = "tb_pacientes")
 public class Paciente {
 
 	@Id
@@ -33,6 +40,11 @@ public class Paciente {
 	
 	@UpdateTimestamp	
 	private LocalDate dataCadastro;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("medico")
+	private Medico medico;
+
 	
 	public Long getId() {
 		return id;
@@ -81,6 +93,15 @@ public class Paciente {
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+	
 
 	
 }

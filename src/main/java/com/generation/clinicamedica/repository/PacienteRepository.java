@@ -10,6 +10,6 @@ import com.generation.clinicamedica.model.Paciente;
 
 public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 	
-	public List<Paciente> findAllByTituloContainingIgnoreCase(@Param("cpf")Long cpf);
+	public List<Paciente> findAllByCpf(@Param("cpf")Long cpf);
 
 }

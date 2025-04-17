@@ -9,6 +9,7 @@ import com.generation.clinicamedica.model.Medico;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	
-	public List<Medico> findAllByTituloContainingIgnoreCase(@Param("especialidade")String especialidade);
+	public List<Medico> findAllByEspecialidadeContainingIgnoreCase(@Param("especialidade") String especialidade);
+
 
 }

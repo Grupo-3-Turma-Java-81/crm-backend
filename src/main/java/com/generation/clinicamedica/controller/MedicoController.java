@@ -49,10 +49,11 @@ public class MedicoController {
 
 	}
 
-	@GetMapping("/medicos/{especialidade}")
-	public ResponseEntity<List<Medico>> getByTitulo(@PathVariable String especialidade) {
-		return ResponseEntity.ok(medicoRepository.findAllByTituloContainingIgnoreCase(especialidade));
+	@GetMapping("/{especialidade}")
+	public ResponseEntity<List<Medico>> getByEspecialidade(@PathVariable String especialidade) {
+	    return ResponseEntity.ok(medicoRepository.findAllByEspecialidadeContainingIgnoreCase(especialidade));
 	}
+
 
 	@PostMapping
 	public ResponseEntity<Medico> post(@Valid @RequestBody Medico medico) {
